@@ -1,5 +1,10 @@
 #include<stdio.h>
-/*Main Function:the entry point for our program*/
+/**
+  * main - the entry point of our program
+  * @params void
+  *
+  * Return: always return 0
+  */
 int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
