@@ -11,16 +11,16 @@ int main(void)
 	char uc = 'A';
 	char lc = 'a';
 
-	while (uc <= 'Z')
-	{
-		putchar(uc);
-		uc++;
-	}
-
 	while (lc <= 'z')
 	{
 		putchar(lc);
 		lc++;
+	}
+
+	while (uc <= 'Z')
+	{
+		putchar(uc);
+		uc++;
 	}
 
 	putchar('\n');
