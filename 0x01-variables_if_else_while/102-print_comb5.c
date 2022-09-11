@@ -32,10 +32,7 @@ int main(void)
 						putchar('0' + num3);
 						putchar('0' + num4);
 						if (num1 * 10 + num2 != 98)
-						{
-							putchar(',');
-							putchar(' ');
-						}
+							putchar(','); putchar(' ');
 
 					}
 					num4++;
