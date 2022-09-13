@@ -21,41 +21,41 @@ void print_times_table(int n)
 		{
 			if (number * multipler > 99)
 			{
-				putchar('0' + (number * multipler) / 100);
-				putchar('0' + (number * multipler) % 100 / 10);
-				putchar('0' + (number * multipler) % 10);
+				_putchar('0' + (number * multipler) / 100);
+				_putchar('0' + (number * multipler) % 100 / 10);
+				_putchar('0' + (number * multipler) % 10);
 			}
 			else if (number * multipler > 9)
 			{
-				putchar('0' + (number * multipler) / 10);
-				putchar('0' + (number * multipler) % 10);
+				_putchar('0' + (number * multipler) / 10);
+				_putchar('0' + (number * multipler) % 10);
 			}
 			else
-				putchar('0' + number * multipler);
+				_putchar('0' + number * multipler);
 			if (multipler != n)
 			{
 				if ((number * (multipler + 1)) > 99)
 				{
-					putchar(',');
-					putchar(' ');
+					_putchar(',');
+					_putchar(' ');
 				}
 				else if ((number * (multipler + 1)) > 9)
 				{
-					putchar(',');
-					putchar(' ');
-					putchar(' ');
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
 				}
 				else
 				{
-					putchar(',');
-					putchar(' ');
-					putchar(' ');
-					putchar(' ');
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(' ');
 				}
 			}
 			multipler++;
 		}
-		putchar('\n');
+		_putchar('\n');
 		number++;
 	}
 }
