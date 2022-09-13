@@ -26,6 +26,6 @@ int main(void)
 		second = current;
 		numbers += 1;
 	}
-	printf('\n');
+	putchar('\n');
 	return (0);
 }
