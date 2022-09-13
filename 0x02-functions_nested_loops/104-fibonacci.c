@@ -14,11 +14,11 @@ int main(void)
         double current;
 
         printf("%.0f, %.0f, ", first, second);
-        while (numbers < 99)
+        while (numbers < 98)
 	{
 		current = first + second;
 		printf("%.0f", current);
-		if (numbers != 98)
+		if (numbers != 97)
 		{
 			printf(", ");
 		}
