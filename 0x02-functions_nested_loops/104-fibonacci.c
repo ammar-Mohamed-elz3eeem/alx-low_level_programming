@@ -8,13 +8,13 @@
 
 int main(void)
 {
-        double first = 1;
-        double second = 2;
-        int numbers = 2;
-        double current;
+	double first = 1;
+	double second = 2;
+	int numbers = 2;
+	double current;
 
-        printf("%.0f, %.0f, ", first, second);
-        while (numbers < 98)
+	printf("%.0f, %.0f, ", first, second);
+	while (numbers < 98)
 	{
 		current = first + second;
 		printf("%.0f", current);
@@ -26,6 +26,6 @@ int main(void)
 		second = current;
 		numbers += 1;
 	}
-        putchar('\n');
-        return (0);
+	putchar('\n');
+	return (0);
 }
