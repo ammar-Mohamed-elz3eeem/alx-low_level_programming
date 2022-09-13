@@ -15,45 +15,30 @@ void print_times_table(int n)
 		return;
 	while (number <= n)
 	{
-		int multipler = 0;
+		int multipler = 1;
 
+		_putchar('0');
 		while (multipler <= n)
 		{
-			if (number * multipler > 99)
+			_putchar(',');
+			_putchar(' ');
+			if ((number * multipler) > 99)
 			{
-				_putchar('0' + (number * multipler) / 100);
-				_putchar('0' + (number * multipler) % 100 / 10);
-				_putchar('0' + (number * multipler) % 10);
+				_putchar('0' + ((number * multipler) / 100) % 10);
+				_putchar('0' + ((number * multipler) / 10) % 10);
 			}
-			else if (number * multipler > 9)
+			else if ((number * multipler) > 9 && (number * multipler) < 100)
 			{
-				_putchar('0' + (number * multipler) / 10);
-				_putchar('0' + (number * multipler) % 10);
+				_putchar(' ');
+				_putchar('0' + ((number * multipler) / 10) % 10);
 			}
 			else
-				_putchar('0' + number * multipler);
-			if (multipler != n)
 			{
-				if ((number * (multipler + 1)) > 99)
-				{
-					_putchar(',');
-					_putchar(' ');
-				}
-				else if ((number * (multipler + 1)) > 9)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-				}
-				else
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(' ');
-				}
+				_putchar(' ');
+				_putchar(' ');
 			}
-			multipler++;
+			_putchar('0' + (number * multipler) % 10);
+			multipler += 1;
 		}
 		_putchar('\n');
 		number++;
