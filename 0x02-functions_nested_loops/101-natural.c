@@ -12,7 +12,7 @@ int main(void)
 	int current = 1;
 	int sum = 0;
 
-	while (current < 1024)
+	while (current < max)
 	{
 		if (current % 5 == 0 || current % 3 == 0)
 		{
