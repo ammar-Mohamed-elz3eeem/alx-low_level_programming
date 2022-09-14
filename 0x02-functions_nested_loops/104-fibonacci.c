@@ -8,10 +8,10 @@
 
 int main(void)
 {
-	unsigned long double first = 1;
-	unsigned long double second = 2;
+	long double first = 1;
+	long double second = 2;
 	int numbers = 2;
-	unsigned long double current;
+	long double current;
 
 	printf("%.0Lf, %.0Lf, ", first, second);
 	while (numbers < 98)
