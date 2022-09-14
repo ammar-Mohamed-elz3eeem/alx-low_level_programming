@@ -11,7 +11,7 @@ int main(void)
 	int first = 0;
 	int second = 1;
 	int current = 0;
-	unsigned long sum = second;
+	int sum = 0;
 
 	while (first < 4000000)
 	{
@@ -21,6 +21,6 @@ int main(void)
 		if (first % 2 == 0)
 			sum += first;
 	}
-	printf("%lu\n", sum);
+	printf("%d\n", sum);
 	return (0);
 }
