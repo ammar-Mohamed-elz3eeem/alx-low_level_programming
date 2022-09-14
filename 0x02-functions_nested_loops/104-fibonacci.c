@@ -13,11 +13,11 @@ int main(void)
 	int numbers = 2;
 	unsigned long int current;
 
-	printf("%.0Lf, %.0Lf, ", first, second);
+	printf("%ld, %ld, ", first, second);
 	while (numbers < 98)
 	{
 		current = first + second;
-		printf("%.0Lf", current);
+		printf("%ld", current);
 		if (numbers != 97)
 		{
 			printf(", ");
