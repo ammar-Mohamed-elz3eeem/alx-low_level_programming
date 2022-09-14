@@ -8,21 +8,19 @@
 
 int main(void)
 {
-	int first = 1;
-	int second = 2;
+	int first = 0;
+	int second = 1;
 	int current = 0;
-	int sum = second;
+	unsigned long sum = second;
 
-	while ((first + second) < 4000000)
+	while (first < 4000000)
 	{
 		current = first + second;
-		if (current % 2 == 0)
-		{
-			sum += current;
-		}
 		second = first;
 		first = current;
+		if (first % 2 == 0)
+			sum += first;
 	}
-	printf("%d\n", sum);
+	printf("%lu\n", sum);
 	return (0);
 }
