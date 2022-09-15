@@ -2,16 +2,18 @@
 
 /**
  * print_square - prints square of hashtags
- * @n: size of square
+ * @size: size of square
  */
 
-void print_square(int n)
+void print_square(int size)
 {
 	int length = 0;
-	while (length < n)
+
+	while (length < size)
 	{
 		int width = 0;
-		while (width < n)
+
+		while (width < size)
 		{
 			_putchar('#');
 			width++;
@@ -19,6 +21,6 @@ void print_square(int n)
 		_putchar('\n');
 		length++;
 	}
-	if (n == 0)
+	if (size <= 0)
 		_putchar('\n');
 }
