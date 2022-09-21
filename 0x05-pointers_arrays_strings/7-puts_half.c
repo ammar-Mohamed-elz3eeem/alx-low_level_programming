@@ -13,13 +13,12 @@ void puts_half(char *str)
 	while (str[len])
 		len++;
 
-	if (len % 2 == 0)
-		str_half = len / 2;
-	else
-		str_half = (len - 1) / 2;
+	str_half = len / 2;
 
-	/*printf("length of string is: %d\n", len);
-	printf("half length of string is: %d", str_half);*/
+	/*
+	 * printf("length of string is: %d\n", len);
+	 * printf("half length of string is: %d", str_half);
+	 */
 	while (str[str_half])
 	{
 		_putchar(str[str_half]);
