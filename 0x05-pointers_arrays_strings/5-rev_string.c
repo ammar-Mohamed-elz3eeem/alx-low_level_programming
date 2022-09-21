@@ -7,9 +7,11 @@
 
 void rev_string(char *org_str)
 {
-	int len = _strlen(org_str);
+	int len = 0;
 	int counter = 0;
-
+	
+	while (org_str[len])
+		len++;
 	while (len > counter)
 	{
 		char temp = *(org_str + counter);
