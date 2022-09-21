@@ -8,8 +8,11 @@
 void print_rev(char *str)
 {
 	int i;
+	
 	while (str[i])
+	{
 		i++;
+	}
 
 	while (i > 0)
 	{
