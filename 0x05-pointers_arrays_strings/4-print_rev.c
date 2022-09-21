@@ -7,13 +7,7 @@
 
 void print_rev(char *str)
 {
-	int len = 0;
-
-	while (*str)
-	{
-		len++;
-		str++;
-	}
+	int len = _strlen(str);
 
 	while (len >= 0)
 	{
