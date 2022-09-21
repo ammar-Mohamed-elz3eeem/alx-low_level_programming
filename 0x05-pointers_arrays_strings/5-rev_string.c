@@ -15,8 +15,8 @@ void rev_string(char *org_str)
 	while (len > counter)
 	{
 		char temp = *(org_str + counter);
-		*(org_str + counter) = *(org_str + len);
-		*(org_str + len) = temp;
+		*(org_str + counter) = *(org_str + len - 1);
+		*(org_str + len - 1) = temp;
 		len--;
 		counter++;
 	}
