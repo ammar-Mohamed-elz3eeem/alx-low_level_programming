@@ -22,8 +22,8 @@ void puts_half(char *str)
 	printf("half length of string is: %d", str_half);*/
 	while (str[str_half])
 	{
-		putchar(str[str_half]);
+		_putchar(str[str_half]);
 		str_half++;
 	}
-	putchar('\n');
+	_putchar('\n');
 }
