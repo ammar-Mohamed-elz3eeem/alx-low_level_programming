@@ -2,7 +2,7 @@
 
 /**
  * _strncat - concate two strings
- * @dest - string to concate to
+ * @dest: string to concate to
  * @src: string to concate from
  * @n: number of chars from src to concate
  * Return: concatinated string
