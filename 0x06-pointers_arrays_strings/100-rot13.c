@@ -20,7 +20,6 @@ char *rot13(char *str)
 			else
 				start_char = 65;
 
-			int old_char = str[i];
 			int new_char = (((str[i] - start_char) + 13) % 26) + start_char;
 
 			str[i] = new_char;
