@@ -16,10 +16,9 @@ char *rot13(char *str)
 	{
 		while ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
 		{
+			start_char = 65;
 			if (str[i] >= 'a' && str[i] <= 'z')
 				start_char = 97;
-			else
-				start_char = 65;
 
 			new_char = (((str[i] - start_char) + 13) % 26) + start_char;
 
