@@ -7,8 +7,6 @@
 
 void print_number(int n)
 {
-	int counter = 0;
-
 	if (n < 0)
 	{
 		n = -n;
