@@ -10,31 +10,21 @@
 char *leet(char *str)
 {
 	int i = 0;
+	char arr[5][2] = {{'4', 'a'}, {'3', 'e'}, {'0', 'o'}, {'1', 'l'}, {'7', 't'}};
 
 	while (str[i])
 	{
-		if (str[i] == 'a' || str[i] == 'A')
+		int ch = 0;
+
+		while (ch < 5)
 		{
-			*(str + i) = '0' + 4;
-		}
-		else if (str[i] == 'e' || str[i] == 'E')
-		{
-			*(str + i) = '0' + 3;
-		}
-		else if (str[i] == 'o' || str[i] == 'O')
-		{
-			*(str + i) = '0' + 0;
-		}
-		else if (str[i] == 'l' || str[i] == 'L')
-		{
-			*(str + i) = '0' + 1;
-		}
-		else if (str[i] == 't' || str[i] == 'T')
-		{
-			*(str + i) = '0' + 7;
+			if (str[i] == arr[ch][1])
+			{
+				str[i] = arr[ch][0];
+			}
+			ch++;
 		}
 		i++;
 	}
 	return (str);
 }
-
