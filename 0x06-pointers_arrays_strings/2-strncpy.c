@@ -12,9 +12,15 @@ char *_strncpy(char *dest, char *src, int n)
 {
 	int counter = 0;
 
-	while (*dest && counter < n)
+	while (src[counter] != '\0' && counter < n)
 	{
 		*(dest + counter) = *(src + counter);
+		counter++;
+	}
+
+	while(counter < n)
+	{
+		dest[counter] = '\0';
 		counter++;
 	}
 
