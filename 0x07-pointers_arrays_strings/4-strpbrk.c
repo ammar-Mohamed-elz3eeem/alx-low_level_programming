@@ -29,4 +29,5 @@ char *_strpbrk(char *s, char *accept)
 			return s;
 		s++;
 	}
+	return "\0";
 }
