@@ -2,10 +2,10 @@
 #include <stddef.h>
 
 /**
- * _strpbrk - locates the first occurrence in the string
- * s of any of the bytes in the string accept
- * @s: string to search on
- * @accept: string to search of its charchters
+ * _strstr - locates the first occurrence in the string
+ * haystack of any of all bytes in the string needle
+ * @haystack: string to search on
+ * @needle: string to search of its charchters
  * Return: Returns a pointer to the byte in s that matches
  * one of the bytes in accept, or NULL if no such byte is found
  */
@@ -16,7 +16,7 @@ char *_strstr(char *haystack, char *needle)
 
 	while (*needle)
 	{
-		if(*needle == *(haystack + eq))
+		if (*needle == *(haystack + eq))
 		{
 			needle++;
 			eq++;
@@ -28,8 +28,3 @@ char *_strstr(char *haystack, char *needle)
 	}
 	return (haystack);
 }
-
-/**
- * hello, world
- * world
- */
