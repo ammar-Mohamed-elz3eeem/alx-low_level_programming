@@ -26,5 +26,5 @@ int is_prime(int n, int denom)
 		return (0);
 	else if (denom == n - 1)
 		return (1);
-	is_prime(n, denom + 1);
+	return is_prime(n, denom + 1);
 }
