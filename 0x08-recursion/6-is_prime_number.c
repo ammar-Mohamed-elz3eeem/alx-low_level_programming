@@ -14,7 +14,7 @@ int is_prime_number(int n)
 }
 
 /**
- * is_prime_number - check if entered number is prime or not
+ * is_prime - check if entered number is prime or not
  * @n: number to check
  * @denom: denomerator to determine if number can be divded by it or not
  * Return: 1 if number is prime, 0 otherwise
@@ -26,5 +26,5 @@ int is_prime(int n, int denom)
 		return (0);
 	else if (denom == n - 1)
 		return (1);
-	return is_prime(n, denom + 1);
+	return (is_prime(n, denom + 1));
 }
