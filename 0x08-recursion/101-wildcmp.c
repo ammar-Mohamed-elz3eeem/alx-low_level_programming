@@ -39,4 +39,5 @@ int wildcmp_recursion(char *s1, char *s2)
 		else
 			return (wildcmp(s1 + 1, s2));
 	}
+	return (0);
 }
