@@ -1,6 +1,21 @@
 #include "main.h"
 
 /**
+ * _strlen_recursion - get the number of the charchters on the string
+ * @s: string to count charchters
+ * Return: the number of chars on string
+ */
+
+int _strlen_recursion(char *s)
+{
+	if (*s == '\0')
+		return (0);
+	else
+		return (1 + _strlen_recursion(s + 1));
+}
+
+
+/**
  * is_palindrome - check if string is palindrome or not
  * palindrome means that if word or sentence reversed
  * it will be read as it was before
@@ -10,13 +25,10 @@
 
 int is_palindrome(char *s)
 {
-	int len = 0;
+	int len = _strlen_recursion(s);
 
 	if (!*s)
 		return (1);
-
-	while (s[len])
-		len++;
 
 	return (compare(s, 0, len));
 }
