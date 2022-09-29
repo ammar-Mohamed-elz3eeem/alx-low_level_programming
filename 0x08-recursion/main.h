@@ -13,5 +13,7 @@ int _putchar(char c);
 int _sqrt(int x, int y);
 int is_prime(int n, int denom);
 int compare(char *s, int start, int end);
+int wildcmp(char *s1, char *s2);
+int wildcmp_recursion(char *s1, char *s2);
 
 #endif
