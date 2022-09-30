@@ -21,10 +21,13 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		if (atoi(argv[i]) == 0)
+		if ('0' - argv[i] != 0)
 		{
-			printf("Error\n");
-			return (1);
+			if (atoi(argv[i]) == 0)
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
 		result += atoi(argv[i]);
 	}
