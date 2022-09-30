@@ -12,19 +12,31 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int eq = 0;
+	unsigned int ned_len = 0;
 
-	while (*needle)
+	while (needle[ned_len])
+		ned_len++;
+
+	while (*haystack)
 	{
-		if (*needle == *(haystack + eq))
+		unsigned int eq = 0;
+		
+		while (*needle)
 		{
-			needle++;
-			eq++;
+			if(*needle == *(haystack + eq) && eq < ned_len)
+			{
+				needle++;
+				eq++;
+			}
+			else
+				break;
 		}
-		else
-		{
-			haystack++;
-		}
+		haystack++;
 	}
-	return (haystack);
+	return '\0';
 }
+
+/*
+ * my name is ammar massoud
+ * amei
+ */

@@ -6,8 +6,8 @@ if [ "$2" = "" ]; then
     echo "you didn't entered commit message"
 fi
 
-git add $1
+sudo git add $1
 
-git commit -m "$2"
+sudo git commit -m "$2"
 
-git push
+sudo git push
