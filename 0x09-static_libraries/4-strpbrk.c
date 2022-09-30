@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stddef.h>
 
 /**
  * _strpbrk - locates the first occurrence in the string
@@ -30,5 +29,5 @@ char *_strpbrk(char *s, char *accept)
 			return (s);
 		s++;
 	}
-	return (NULL);
+	return ('\0');
 }

@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * _atoi - convert any digits on string to int type
  * @s: string to operate on
