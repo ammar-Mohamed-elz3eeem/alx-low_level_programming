@@ -1,0 +1,1 @@
+This is a library libmy.a That contains most of the functions we use during the course
