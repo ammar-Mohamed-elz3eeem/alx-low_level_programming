@@ -42,6 +42,6 @@ int main(int argc, char *argv[])
 		num_of_coins++;
 	}
 
-	printf("Number of Coins is: %d\n", num_of_coins);
+	printf("%d\n", num_of_coins);
 	return (0);
 }
