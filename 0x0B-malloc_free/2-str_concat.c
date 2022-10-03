@@ -24,8 +24,6 @@ char *str_concat(char *s1, char *s2)
 		while (s2[len2])
 			len2++;
 
-	printf("current string length %ld\n", (sizeof(char) * (len1 + len2) + 1));
-
 	new_str = malloc(sizeof(char) * (len1 + len2) + 1);
 
 	for (nlen = 0; nlen < (len1 + len2); nlen++)
