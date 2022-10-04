@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * strtow - splits the string into array of words
@@ -72,18 +73,24 @@ int word_count(char *str)
 {
 	int i = 0, number_of_words = 0;
 
-	while (str[i])
+	while (i <= _strlen(str))
 	{
 		if ((str[i] != ' ') && (str[i] != '\0'))
-			i++;
-		else if (((str[i] == ' ') || (str[i] == '\0')) && (str[i - 1] != ' ') && i)
 		{
-			number_of_words++;
+			i++;
+		}
+		else if (((str[i] == ' ') || (str[i] == '\0')) && i && (str[i - 1] != ' '))
+		{
+			number_of_words += 1;
 			i++;
 		}
 		else
+		{
+			printf("current char is: %c\n", str[i]);
 			i++;
+		}
 	}
 
 	return (number_of_words);
 }
+// Talk is cheap. Show me the code.
