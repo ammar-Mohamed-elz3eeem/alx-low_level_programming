@@ -20,7 +20,7 @@ char **strtow(char *str)
 	if (words_arr == NULL)
 		return (NULL);
 
-	for (i = 0; i < _strlen(str) && words; i++)
+	for (i = 0; i <= _strlen(str) && words; i++)
 	{
 		if ((str[i] != ' ') && (str[i] != '\0'))
 			wordlen++;
@@ -86,11 +86,9 @@ int word_count(char *str)
 		}
 		else
 		{
-			printf("current char is: %c\n", str[i]);
 			i++;
 		}
 	}
 
 	return (number_of_words);
 }
-// Talk is cheap. Show me the code.
