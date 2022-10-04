@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * strtow - splits the string into array of words
@@ -26,7 +25,6 @@ char **strtow(char *str)
 		else if (((str[i] == ' ') || (str[i] == '\0')) &&
 			 (str[i - 1] != ' ') && wordlen)
 		{
-			printf("current size is: %d\n", wordlen);
 			words_arr[j] = malloc(sizeof(char) * wordlen + 1);
 			if (words_arr[j] == NULL)
 			{
