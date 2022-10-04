@@ -13,6 +13,7 @@ char **strtow(char *str)
 {
 	int i, j = 0, h = 0, words = word_count(str), wordlen = 0;
 	char **words_arr;
+
 	if (words == 0)
 		return (NULL);
 	words_arr = malloc(sizeof(char *) * (words + 1));
