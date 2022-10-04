@@ -10,20 +10,21 @@
 
 char **strtow(char *str)
 {
-	int i, j = 0, h, words, wordlen = 0;
+	int i, j = 0, h = 0, words = word_count(str), wordlen = 0;
 	char **words_arr;
-
-	words = word_count(str);
-	words_arr = malloc(sizeof(char *) * words + 1);
+	if (words == 0)
+		return (NULL);
+	words_arr = malloc(sizeof(char *) * (words + 1));
 
 	if (words_arr == NULL)
 		return (NULL);
-	for (i = 0; i < _strlen(str); i++)
+
+	for (i = 0; i < _strlen(str) && words; i++)
 	{
-		if (str[i] != ' ' && str[i] != '\0')
+		if ((str[i] != ' ') && (str[i] != '\0'))
 			wordlen++;
 		else if (((str[i] == ' ') || (str[i] == '\0')) &&
-			 (str[i - 1] != ' ') && wordlen)
+			 (str[i - 1] != ' ') && i)
 		{
 			words_arr[j] = malloc(sizeof(char) * wordlen + 1);
 			if (words_arr[j] == NULL)
@@ -43,7 +44,6 @@ char **strtow(char *str)
 			}
 		}
 	}
-
 	return (words_arr);
 }
 
@@ -70,13 +70,13 @@ int _strlen(char *str)
 
 int word_count(char *str)
 {
-	int i, number_of_words = 0;
+	int i = 0, number_of_words = 0;
 
 	while (str[i])
 	{
 		if ((str[i] != ' ') && (str[i] != '\0'))
 			i++;
-		else if ((str[i] == ' ') && (str[i - 1] != ' '))
+		else if (((str[i] == ' ') || (str[i] == '\0')) && (str[i - 1] != ' ') && i)
 		{
 			number_of_words++;
 			i++;
