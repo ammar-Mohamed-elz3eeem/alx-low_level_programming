@@ -17,21 +17,21 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int s1len, s2len, i, j, idx2 = 0;
 	char *new_str;
 
-	for (s1len = 0; s1[s1len]; s1len++)
-		;
-	for (s2len = 0; s2[s2len]; s2len++)
-		;
-
 	if (s1 == NULL)
 		s1 = "";
 
 	if (s2 == NULL)
 		s2 = "";
 
+	for (s1len = 0; s1[s1len]; s1len++)
+		;
+	for (s2len = 0; s2[s2len]; s2len++)
+		;
+
 	if (n > s2len)
 		n = s2len;
 
-	new_str = malloc(sizeof(char) * (s1len + n) + 1);
+	new_str = malloc(sizeof(char) * ((s1len + n) + 1));
 
 	if (new_str == NULL)
 		return (NULL);
