@@ -53,6 +53,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 int min(int n1, int n2)
 {
 	if (n1 > n2)
-		return (n1);
-	return (n2);
+		return (n2);
+	return (n1);
 }
