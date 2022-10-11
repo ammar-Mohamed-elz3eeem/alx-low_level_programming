@@ -21,15 +21,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 	ndog->name = malloc(sizeof(char) * _strlen(name) + 1);
 	if (ndog->name == NULL)
 	{
-		free(ndog->name);
 		free(ndog);
 		return (NULL);
 	}
 
 	ndog->owner = malloc(sizeof(char) * _strlen(owner) + 1);
+
 	if (ndog->owner == NULL)
 	{
-		free(ndog->owner);
 		free(ndog->name);
 		free(ndog);
 		return (NULL);
@@ -56,7 +55,9 @@ char *_strcpy(char *dest, char *src)
 	for (i = 0; src[i]; i++)
 		dest[i] = src[i];
 
-	return dest;
+	dest[i] = '\0';
+
+	return (dest);
 }
 
 /**
@@ -72,5 +73,5 @@ unsigned int _strlen(char *src)
 	for (i = 0; src[i]; i++)
 		;
 
-	return i;
+	return (i);
 }
