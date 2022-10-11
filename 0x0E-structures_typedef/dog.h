@@ -22,5 +22,6 @@ void print_dog(struct dog *d);
 typedef struct dog dog_t;
 char *_strcpy(char *dest, char *src);
 unsigned int _strlen(char *src);
+dog_t *new_dog(char *name, float age, char *owner);
 
 #endif
