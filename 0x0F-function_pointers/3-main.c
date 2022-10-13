@@ -15,17 +15,17 @@ int main(int argc, char **argv)
 	if (argc != 4)
 	{
 		printf("Error\n");
-		return (1);
+		exit(98);
 	}
-	if (get_op_func(argv[2]) == NULL)
+	if (get_op_func(argv[2]) == NULL || *(argv[2] + 1) != '\0')
 	{
 		printf("Error\n");
-		return (1);
+		exit(99);
 	}
 	if ((*argv[2] == '/' || *argv[2] == '%') && num2 == 0)
 	{
 		printf("Error\n");
-		return (1);
+		exit(100);
 	}
 
 	op_func = get_op_func(argv[2])(num1, num2);
