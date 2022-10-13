@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	op_func = get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3]));
+	op_func = get_op_func(argv[2])(num1, num2);
 
 	printf("%d\n", op_func);
 
