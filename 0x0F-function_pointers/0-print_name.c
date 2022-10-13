@@ -1,7 +1,7 @@
 #include "function_pointers.h"
 
 /**
- * print_name - prints a name
+ * print_name - prints a name using callback
  * @name: name of the person to be printed
  * @f: pointer to function to format the output
  */
