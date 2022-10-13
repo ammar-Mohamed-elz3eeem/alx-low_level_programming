@@ -9,22 +9,28 @@
 
 int main(int argc, char **argv)
 {
+	int op_func;
+	int num1 = atoi(argv[1]), num2 = atoi(argv[3]);
+
 	if (argc != 4)
 	{
-		print("Error\n");
+		printf("Error\n");
 		return (1);
 	}
-	if (atoi(argv[1]) <= 0 || (atoi(argv[3])) <= 0)
+	if (get_op_func(argv[2]) == NULL)
 	{
-		print("Error\n");
+		printf("Error\n");
+		return (1);
+	}
+	if ((*argv[2] == '/' || *argv[2] == '%') && num2 == 0)
+	{
+		printf("Error\n");
 		return (1);
 	}
 
-	int op_func = get_op_func(argv[2]);
+	op_func = get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3]));
 
-	if (op_func == NULL)
-	{
-		print("Error\n");
-		return (1);
-	}
+	printf("%d\n", op_func);
+
+	return (0);
 }
