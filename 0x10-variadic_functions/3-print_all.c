@@ -77,7 +77,7 @@ void print_all(const char *const format, ...)
 
 	va_start(args, format);
 
-	while (format[i])
+	while (format && format[i])
 	{
 		order_of_function = 0;
 		while (order_of_function < 4 && *(func[order_of_function].ch) != format[i])
