@@ -2,7 +2,7 @@
 
 /**
  * sum_them_all - sum all numbers given in argument list
- * @n: first number
+ * @n: number of arguments passed to the function
  * Return: sum of all numbers
  */
 
