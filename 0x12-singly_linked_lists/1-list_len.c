@@ -10,9 +10,9 @@
 size_t list_len(const list_t *h)
 {
 	const list_t *el = h;
-	unsigned int count = 1;
+	size_t count = 0;
 
-	for (; el->next != NULL; count++)
+	for (; el; count++)
 	{
 		el = el->next;
 	}
