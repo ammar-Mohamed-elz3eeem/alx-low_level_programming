@@ -19,5 +19,5 @@ int pop_listint(listint_t **head)
 	node_element = (*head)->n;
 	free(*head);
 	*head = list;
-	return node_element;
+	return (node_element);
 }
