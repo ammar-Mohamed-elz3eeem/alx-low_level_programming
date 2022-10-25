@@ -2,9 +2,10 @@
 #include <stdio.h>
 
 /**
- * add_nodeint - add node element to the list
- * @h: linked list consist of number of nodes
- * Return: number of nodes
+ * add_nodeint_end - add node element to the list at the end
+ * @head: linked list consist of number of nodes
+ * @n: number to be added to linked list
+ * Return: linked list
  */
 
 listint_t *add_nodeint_end(listint_t **head, const int n)
@@ -27,7 +28,5 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 		last->next = node;
 	}
 
-	return *head;
+	return (*head);
 }
-// head = [ [0, 7fff515], [2, 7fff500],[5, NULL] ]
-// last = [5, NULL]
