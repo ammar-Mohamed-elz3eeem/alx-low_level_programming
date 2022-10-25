@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * insert_nodeint_at_index - insert node at specified position
@@ -10,41 +11,56 @@
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int i = 0;
-	listint_t *newlist;
-	listint_t *node;
-	listint_t *tmp;
+	listint_t *node = NULL;
+	listint_t *prev_node = NULL;
+	listint_t *list = *head;
+	int i = 0;
 
 	node = malloc(sizeof(listint_t));
-	node->n = n;
 
-	if (node == NULL)
+	if (node == NULL || listint_len(list) < idx)
+	{
+		free(node);
 		return (NULL);
-
-	if (*head == NULL)
-	{
-		node->next = NULL;
-		*head = node;
 	}
-	else
+
+	node->n = n;
+	node->next = NULL;
+
+	while (list != NULL)
 	{
-		newlist = *head;
-		while (newlist->next != NULL)
+		if (i <= idx)
 		{
-			if (i <= idx)
+			if (i == idx)
 			{
-				if (i == (idx - 1))
-				{
-					tmp = newlist;
-
-					node->next = tmp->next;
-					newlist->next = node;
-				}
+				node->next = prev_node->next;
+				prev_node->next = node;
+				return (node);
 			}
-			i++;
-			newlist = newlist->next;
+			else if ((i + 1) == idx)
+				prev_node = list;
 		}
+		list = list->next;
+		i++;
+	}
+}
+
+/**
+ * listint_len - return number of elements of a listint_t list
+ * @h: linked list consist of number of nodes
+ * Return: number of nodes
+ */
+
+size_t listint_len(const listint_t *h)
+{
+	const listint_t *last = h;
+	int len = 0;
+
+	while (last != NULL)
+	{
+		len++;
+		last = last->next;
 	}
 
-	return (*head);
+	return (len);
 }
