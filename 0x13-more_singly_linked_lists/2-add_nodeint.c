@@ -3,8 +3,9 @@
 
 /**
  * add_nodeint - add node element to the list
- * @h: linked list consist of number of nodes
- * Return: number of nodes
+ * @head: linked list consist of number of nodes
+ * @n: number to be added to linked list
+ * Return: linked list
  */
 
 listint_t *add_nodeint(listint_t **head, const int n)
@@ -21,5 +22,5 @@ listint_t *add_nodeint(listint_t **head, const int n)
 
 	*head = first;
 
-	return *head;
+	return (*head);
 }
