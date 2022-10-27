@@ -20,8 +20,6 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 			counter++;
 		}
 		xorbits = xorbits >> 1;
-		print_binary(xorbits);
-		putchar('\n');
 	}
 
 	return (counter);
