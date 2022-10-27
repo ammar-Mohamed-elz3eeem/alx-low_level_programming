@@ -14,8 +14,3 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	*n &= (~(1 << index));
 	return (1);
 }
-
-// 10000000000
-// 01111111111
-// -------------
-// 00000000000
