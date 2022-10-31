@@ -1,5 +1,5 @@
-#ifndef MAIN_FILE
-#define MAIN_FILE
+#ifndef FILESIO_MAIN
+#define FILESIO_MAIN
 
 #include <stdlib.h>
 
