@@ -19,13 +19,16 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+
 	file_from = open(argv[1], O_RDONLY);
 	file_to = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
-
 	buffer = malloc(sizeof(char) * 1024);
-	while ((len = read(file_from, buffer, 1024)) > 0)
+	len = read(file_from, buffer, 1024);
+
+	while (len > 0)
 	{
-		if (len < 0 || file_from < 0)
+
+		if (file_from < 0 || len < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
@@ -36,18 +39,18 @@ int main(int argc, char **argv)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
-		free(buffer);
+		len = read(file_from, buffer, len);
+		file_to = open(argv[2], O_APPEND | O_WRONLY);
 	}
-
 	close_file(&file_from);
 	close_file(&file_to);
+	free(buffer);
 
 	return (0);
 }
 
 /**
  * close_file - check if file is closed or not
- * @handler_closer: the integer number returned by the close function
  * @file_handler: the file that you want to close
  */
 
