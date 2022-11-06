@@ -25,9 +25,8 @@ int main(int argc, char **argv)
 	buffer = malloc(sizeof(char) * 1024);
 	len = read(file_from, buffer, 1024);
 
-	while (len > 0)
+	do
 	{
-
 		if (file_from < 0 || len < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
@@ -41,7 +40,7 @@ int main(int argc, char **argv)
 		}
 		len = read(file_from, buffer, len);
 		file_to = open(argv[2], O_APPEND | O_WRONLY);
-	}
+	} while (len > 0);
 	close_file(&file_from);
 	close_file(&file_to);
 	free(buffer);
