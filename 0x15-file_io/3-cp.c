@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 		writer = write(file_to, buffer, len);
 		total += len;
 	}
-	if (writer < 0 || file_to < 0)
+	if (file_to < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
