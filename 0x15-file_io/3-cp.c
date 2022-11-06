@@ -31,7 +31,6 @@ int main(int argc, char **argv)
 	while ((len = read(file_from, buffer, 1024)) > 0)
 	{
 		writer = write(file_to, buffer, len);
-		printf("number of chars now is: %ld\n", len);
 	}
 	if (writer < 0 || file_to < 0)
 	{
