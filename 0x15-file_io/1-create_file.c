@@ -9,7 +9,7 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int file_handler, file_writer, len = 0;
+	int file_handler, len = 0;
 
 	if (filename == NULL)
 		return (-1);
@@ -21,7 +21,7 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	file_handler = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	file_writer = write(file_handler, text_content, len);
+	write(file_handler, text_content, len);
 
 	if (file_handler <= 0)
 		return (-1);
