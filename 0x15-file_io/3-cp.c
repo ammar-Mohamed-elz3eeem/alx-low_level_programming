@@ -10,7 +10,7 @@
 
 int main(int argc, char **argv)
 {
-	int file_from, file_to, writer, close_dest, close_src;
+	int file_from, file_to, writer;
 	char *buffer;
 	ssize_t len = 0;
 
@@ -36,6 +36,7 @@ int main(int argc, char **argv)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
+		free(buffer);
 	}
 
 	close_file(&file_from);
