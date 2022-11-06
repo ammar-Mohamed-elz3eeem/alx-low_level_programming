@@ -1,4 +1,4 @@
-#include "main.h"
+nclude "main.h"
 #include <stdio.h>
 
 /**
@@ -25,8 +25,7 @@ int main(int argc, char **argv)
 	buffer = malloc(sizeof(char) * 1024);
 	len = read(file_from, buffer, 1024);
 
-	do
-	{
+	do {
 		if (file_from < 0 || len < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
@@ -66,3 +65,4 @@ void close_file(int *file_handler)
 		exit(100);
 	}
 }
+
