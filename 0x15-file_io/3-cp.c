@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 	int file_from, file_to, writer, close_dest, close_src;
 	char *buffer;
 	ssize_t len = 0;
+	int total = 0;
 
 	if (argc != 3)
 	{
@@ -27,10 +28,10 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 	buffer = malloc(sizeof(char) * 1024);
-	len = read(file_from, buffer, 1024);
 	while ((len = read(file_from, buffer, 1024)) > 0)
 	{
 		writer = write(file_to, buffer, len);
+		total += len;
 	}
 	if (writer < 0 || file_to < 0)
 	{
