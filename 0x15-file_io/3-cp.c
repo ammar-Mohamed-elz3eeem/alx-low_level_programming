@@ -22,21 +22,21 @@ int main(int argc, char **argv)
 	}
 	file_from = open(argv[1], O_RDONLY);
 	file_to = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
-	if (file_from <= 0)
+	if (file_from < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
+	}
+	if (file_to < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
 	buffer = malloc(sizeof(char) * 1024);
 	while ((len = read(file_from, buffer, 1024)) > 0)
 	{
 		write(file_to, buffer, len);
 		total += len;
-	}
-	if (file_to < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
 	}
 	close_dest = close(file_from);
 	close_src = close(file_to);
