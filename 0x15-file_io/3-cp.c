@@ -41,6 +41,7 @@ int main(int argc, char **argv)
 		len = read(file_from, buffer, len);
 		file_to = open(argv[2], O_APPEND | O_WRONLY);
 	} while (len > 0);
+
 	close_file(&file_from);
 	close_file(&file_to);
 	free(buffer);
