@@ -10,7 +10,7 @@
 
 int main(int argc, char **argv)
 {
-	int file_from, file_to, writer, close_dest, close_src;
+	int file_from, file_to, close_dest, close_src;
 	char *buffer;
 	ssize_t len = 0;
 	int total = 0;
@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 	buffer = malloc(sizeof(char) * 1024);
 	while ((len = read(file_from, buffer, 1024)) > 0)
 	{
-		writer = write(file_to, buffer, len);
+		write(file_to, buffer, len);
 		total += len;
 	}
 	if (file_to < 0)
