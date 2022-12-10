@@ -1,3 +1,4 @@
-main.c
+*-main.c
 *.out
 *.o
+[A_Za-z]*.c
