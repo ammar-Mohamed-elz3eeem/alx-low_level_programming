@@ -18,5 +18,5 @@ size_t print_dlistint(const dlistint_t *h)
 		no_elems++;
 	}
 
-	return no_elems;
+	return (no_elems);
 }
