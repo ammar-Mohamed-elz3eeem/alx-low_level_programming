@@ -12,11 +12,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *newEl;
 	unsigned long int i = 0, index;
-	char *value_dup = strdup(value);
+	char *value_dup;
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
-
+	value_dup = strdup(value);
 	if (value_dup == NULL)
 		return (0);
 	index = key_index((unsigned char *)key, ht->size);
@@ -29,7 +29,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			return (1);
 		}
 	}
-
 	newEl = malloc(sizeof(hash_node_t));
 	if (newEl == NULL)
 	{
