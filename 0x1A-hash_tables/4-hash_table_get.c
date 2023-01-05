@@ -2,7 +2,9 @@
 
 /**
  * hash_table_get - retrieves a value associated with a key in hash table
- *
+ * @ht: hashtable to retrieve data from
+ * @key: key to get its value
+ * Return: NULL if no value associated with that key, or return value
  */
 
 char *hash_table_get(const hash_table_t *ht, const char *key)
