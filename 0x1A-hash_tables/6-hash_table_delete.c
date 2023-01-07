@@ -2,13 +2,14 @@
 
 /**
  * hash_table_delete - delete hashtable object
- * ht: hashtable
+ * @ht: hashtable
  */
 
 void hash_table_delete(hash_table_t *ht)
 {
 	hash_node_t *node;
 	unsigned long int i;
+	hash_node_t *tmp;
 
 	for (i = 0; i < ht->size; i++)
 	{
@@ -17,7 +18,7 @@ void hash_table_delete(hash_table_t *ht)
 			node = ht->array[i];
 			while (node != NULL)
 			{
-				hash_node_t *tmp = node->next;
+				tmp = node->next;
 				free(node->value);
 				free(node->key);
 				free(node);
