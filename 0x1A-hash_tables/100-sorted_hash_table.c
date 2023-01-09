@@ -52,11 +52,33 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
 	temporary_node = ht->shead;
+	while (temporary_node)
+	{
+		if (strcmp(temporary_node->key, key) == 0)
+		{
+			free(temporary_node->value);
+			temporary_node->value = strdup(value);
+			return (1);
+		}
+		temporary_node = temporary_node->snext;
+	}
 	inserted_node = malloc(sizeof(shash_node_t));
 	inserted_node->key = strdup(key);
 	inserted_node->value = strdup(value);
+	if (inserted_node->value == NULL || inserted_node->key == NULL)
+		return (0);
 	inserted_node->next = ht->array[index];
 	ht->array[index] = inserted_node;
+	if (insert_into_shash_table(ht, inserted_node, (const char *)key))
+		return (1);
+	return (0);
+}
+
+int insert_into_shash_table(shash_table_t *ht, shash_node_t *inserted_node,
+			    const char *key)
+{
+	shash_node_t *temporary_node;
+
 	if (ht->shead == NULL)
 	{
 		inserted_node->snext = NULL;
