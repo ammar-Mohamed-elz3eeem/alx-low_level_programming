@@ -46,31 +46,15 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
-	char *valuedup;
-	unsigned long int index;
+	unsigned long int index = key_index((const unsigned char *)key, ht->size);
 	shash_node_t *inserted_node, *temporary_node;
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
-	valuedup = strdup(value);
-	if (valuedup == NULL)
-		return (0);
-	index = key_index((const unsigned char *)key, ht->size);
 	temporary_node = ht->shead;
 	inserted_node = malloc(sizeof(shash_node_t));
-	if (inserted_node == NULL)
-	{
-		free(valuedup);
-		return (0);
-	}
 	inserted_node->key = strdup(key);
-	if (inserted_node->key == NULL)
-	{
-		free(valuedup);
-		free(inserted_node);
-		return (0);
-	}
-	inserted_node->value = valuedup;
+	inserted_node->value = strdup(value);
 	inserted_node->next = ht->array[index];
 	ht->array[index] = inserted_node;
 	if (ht->shead == NULL)
@@ -90,7 +74,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	else
 	{
 		temporary_node = ht->shead;
-		while (temporary_node->snext != NULL && strcmp(temporary_node->snext->key, key) < 0)
+		while (temporary_node->snext != NULL &&
+		       strcmp(temporary_node->snext->key, key) < 0)
 			temporary_node = temporary_node->snext;
 		inserted_node->sprev = temporary_node;
 		inserted_node->snext = temporary_node->snext;
@@ -125,6 +110,12 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 		node = node->snext;
 	return ((node == NULL) ? NULL : node->value);
 }
+
+/**
+ * shash_table_print - print all elements in the hash table
+ * @ht: hash table element
+ */
+
 void shash_table_print(const shash_table_t *ht)
 {
 	shash_node_t *node;
@@ -142,6 +133,13 @@ void shash_table_print(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
+
+/**
+ * shash_table_print_rev - print all elements in the hash table
+ *				in reverse order
+ * @ht: hash table element
+ */
+
 void shash_table_print_rev(const shash_table_t *ht)
 {
 	shash_node_t *node;
@@ -159,10 +157,17 @@ void shash_table_print_rev(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
+
+/**
+ * shash_table_delete - delete all elements in the hash table
+ * @ht: hash table element
+ */
+
 void shash_table_delete(shash_table_t *ht)
 {
 	shash_table_t *head = ht;
 	shash_node_t *node, *tmp;
+
 	if (ht == NULL)
 		return;
 	node = ht->shead;
