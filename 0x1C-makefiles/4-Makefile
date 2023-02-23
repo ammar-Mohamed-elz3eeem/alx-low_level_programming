@@ -6,7 +6,7 @@ RM=rm
 C_FLAGS=-Wall -Werror -Wextra -pedantic
 
 all: $(OBJ)
-	$(CC) $(C_FLAGS) $(SRC) -o $(NAME)
+	$(CC) $(C_FLAGS) $(OBJ) -o $(NAME)
 
 .PHONY: clean oclean fclean re
 
@@ -14,7 +14,7 @@ clean:
 	$(RM) -rf $(NAME) *~
 
 oclean:
-	$(RM) -rf *.o
+	$(RM) -rf $(OBJ)
 
 fclean: clean oclean
 
