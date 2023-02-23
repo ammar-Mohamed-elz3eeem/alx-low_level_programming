@@ -1,8 +1,4 @@
-files = $(wildcard *.c)
-runeers = $(files:%.c=%)
 CC = gcc
 
-all: build
-	@echo "I will build all script"
-build:
-	gcc $(files) -o school
+all: main.c school.c
+	$(CC) main.c school.c -o school
