@@ -20,7 +20,7 @@ def island_perimeter(grid):
         for col in range(len(grid[row])):
             if grid[row][col]:
                 perimeter += 1
-                
+
                 if row > 0 and grid[row - 1][col]:
                     edges += 1
                 if col > 0 and grid[row][col - 1]:
