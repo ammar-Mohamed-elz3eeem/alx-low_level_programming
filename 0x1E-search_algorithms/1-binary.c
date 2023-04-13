@@ -15,11 +15,40 @@ int binary_search(int *array, size_t size, int value)
 {
 	if (size <= 0 || array == NULL)
 		return (-1);
-	return (do_binary_searching(array, 0, size - 1, value));
+	return (do_binary_searching_for(array, size - 1, value));
 }
 
 /**
- * do_binary_searching - the recuresion call to
+ * do_binary_searching_for - the recuresion call to
+ * set the lowest & highest point in the array
+ * using for statements
+ *
+ * @array: array of integers
+ * @high: last element of array
+ * @value: integer value to search for
+ * Return: the index of the value in array, otherwise -1
+ */
+
+int do_binary_searching_for(int *array, size_t high, int value)
+{
+	size_t i, left, right;
+
+	for (left = 0, right = high; left <= right;)
+	{
+		i = left + ((right - left) / 2);
+		print_array(array, left, right);
+		if (array[i] == value)
+			return (i);
+		else if (array[i] > value)
+			right = i - 1;
+		else
+			left = i + 1;
+	}
+	return (-1);
+}
+
+/**
+ * do_binary_searching_rec - the recuresion call to
  * set the lowest & highest point in the array
  *
  * @array: array of integers
@@ -29,7 +58,7 @@ int binary_search(int *array, size_t size, int value)
  * Return: the index of the value in array, otherwise -1
  */
 
-int do_binary_searching(int *array, size_t low, size_t high, int value)
+int do_binary_searching_rec(int *array, size_t low, size_t high, int value)
 {
 	int mid = low + ((high - low) / 2);
 
@@ -37,10 +66,10 @@ int do_binary_searching(int *array, size_t low, size_t high, int value)
 	if (low > high)
 		return (-1);
 	if (array[mid] > value)
-		return (do_binary_searching(array, 0, mid - 1, value));
+		return (do_binary_searching_rec(array, 0, mid - 1, value));
 	else if (array[mid] == value)
 		return (mid);
-	return (do_binary_searching(array, mid + 1, high, value));
+	return (do_binary_searching_rec(array, mid + 1, high, value));
 }
 
 /**
