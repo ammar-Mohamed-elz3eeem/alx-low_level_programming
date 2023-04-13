@@ -34,15 +34,13 @@ int do_binary_searching(int *array, size_t low, size_t high, int value)
 	int mid = low + ((high - low) / 2);
 
 	print_array(array, low, high);
-	if (low >= high)
+	if (low > high)
 		return (-1);
 	if (array[mid] > value)
 		return (do_binary_searching(array, 0, mid - 1, value));
-	else if (array[mid] < value)
-		return (do_binary_searching(array, mid + 1, high, value));
 	else if (array[mid] == value)
 		return (mid);
-	return (-1);
+	return (do_binary_searching(array, mid + 1, high, value));
 }
 
 /**
