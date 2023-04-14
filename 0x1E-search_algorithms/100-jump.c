@@ -80,14 +80,11 @@ int do_jump_search_for(int *array, size_t left, int step,
 		right = index * step;
 	} while (array[right] < value && right < size);
 	printf("Value found between indexes [%ld] and [%ld]\n", prev, right);
-	if (array[prev] <= value)
+	for (j = prev; j <= right && j < size; j++)
 	{
-		for (j = prev; j <= right && j < size; j++)
-		{
-			printf("Value checked array[%ld] = [%d]\n", j, array[j]);
-			if (array[j] == value)
-				return (j);
-		}
+		printf("Value checked array[%ld] = [%d]\n", j, array[j]);
+		if (array[j] == value)
+			return (j);
 	}
 
 	return (-1);
