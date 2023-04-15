@@ -68,7 +68,6 @@ int do_jump_search_for(int *array, size_t left, int step,
 {
 	size_t prev, j, right, index;
 
-	right = left + step;
 	prev = 0, right = 0, index = 0;
 	do
 	{
