@@ -66,11 +66,10 @@ int do_jump_search_rec(int *array, size_t left, int step,
 int do_jump_search_for(int *array, size_t left, int step,
 		       int value, size_t size)
 {
-	size_t prev, j, right, index;
+	size_t prev, right, index;
 
-	prev = 0, right = 0, index = 0;
-	do
-	{
+	prev = left, right = left, index = left;
+	do {
 		printf("Value checked array[%ld] = [%d]\n", right, array[right]);
 		if (array[right] == value)
 			return (index);
